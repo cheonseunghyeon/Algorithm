@@ -1,6 +1,7 @@
 # 9184번 문제
-# 메모리제이션 개념 문제
+# 31120KB	68MS
 
+# 메모리제이션 개념 문제
  #20 이상의 값은 모두 20으로 변경됨
 dp = [[[0 for _ in range(21)] for _ in range(21)] for _ in range(21)]
 def w(a,b,c):
