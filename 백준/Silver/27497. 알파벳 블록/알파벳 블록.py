@@ -1,36 +1,31 @@
-import sys
 from collections import deque
+import sys
 
-number = int(sys.stdin.readline().strip())
+list = deque()
+list_count = []
 
-que = deque()
-rule = deque()
+Number = int(sys.stdin.readline().strip())
 
-for i in range(number):
-  inputs = sys.stdin.readline().strip().split()
+for _ in range(Number):
+    input_data = sys.stdin.readline().strip().split()
+    
+    if input_data[0] == '1':
+        list.append(input_data[1])
+        list_count.append(input_data[0])
+        
+    elif input_data[0] == '2':
+        list.appendleft(input_data[1])
+        list_count.append(input_data[0])
+        
+    elif input_data[0] == '3':
+        if list_count:
+            order = list_count.pop()
+            if order == '1':
+                list.pop()
+            elif order == '2':
+                list.popleft()    
 
-  if(len(inputs) == 2):
-      count = int(inputs[0])
-      
-      if count == 1:
-        que.append(inputs[1])
-        rule.append(True)
-          
-      elif count == 2:
-        que.appendleft(inputs[1])
-        rule.append(False)
-          
-  else:
-    if inputs[0] == '3':
-        if rule:   
-            current_rule = rule.pop()
-            if current_rule:
-                que.pop()
-            else:
-                que.popleft()
-
-if que:
-    print("".join(que))
+if list:
+    print("".join(list))
 else:
     print(0)
-    
