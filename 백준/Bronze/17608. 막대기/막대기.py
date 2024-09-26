@@ -1,7 +1,6 @@
-from collections import deque
 import sys
 
-total_list = deque()
+total_list = []
 count = 0
 num = 0
 N = int(sys.stdin.readline())
@@ -13,8 +12,5 @@ if total_list:
         if num < total_list[item]:
             num = total_list[item]
             count += 1
-            
+        
 print(count)       
-
-
-
