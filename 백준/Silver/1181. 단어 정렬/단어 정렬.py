@@ -1,14 +1,18 @@
-# 입력 받기
-N = int(input())
-words = set()
+import sys
 
-# 중복 제거를 위해 set에 단어 저장
-for _ in range(N):
-    words.add(input().strip())
+def read():
+    return sys.stdin.readline().strip()
 
-# 정렬: 먼저 단어의 길이로 정렬하고, 길이가 같으면 사전순으로 정렬
-sorted_words = sorted(words, key=lambda x: (len(x), x))
+N = int(read())
+Input = [read() for _ in range(N)]
+Input = list(set(Input))
 
-# 결과 출력
-for word in sorted_words:
-    print(word)
+Input.sort()  
+for i in range(1, len(Input)):
+    for j in range(i, 0, -1):
+        if len(Input[j]) < len(Input[j-1]):
+            Input[j], Input[j-1] = Input[j-1], Input[j]
+
+
+for item in Input:
+    print(item)
