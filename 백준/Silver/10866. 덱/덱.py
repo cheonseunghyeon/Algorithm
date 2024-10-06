@@ -1,11 +1,9 @@
 import sys
 from collections import deque
 
-
-number = int(sys.stdin.readline().strip())
 result = deque() 
 
-for _ in range(number):
+for _ in range(int(input())):
     inputs = sys.stdin.readline().strip().split()
     command = inputs[0]  
   
